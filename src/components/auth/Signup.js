@@ -41,6 +41,9 @@ const Signup = () => {
     if (userCreate) {
       navigateToLogin();
     }
+    if (userError) {
+      sweetAlertForError(userError);
+    }
     dispatch(clearError());
   }, [userError, userCreate]);
 
