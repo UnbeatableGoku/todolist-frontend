@@ -39,6 +39,9 @@ const Login = () => {
       reset();
       navigateToHome();
     }
+    if (userError) {
+      sweetAlertForError(userError);
+    }
     
     dispatch(clearError());
   }, [validUser, userError]);
