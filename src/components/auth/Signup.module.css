@@ -1,0 +1,22 @@
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.formParent {
+    height: 100%;
+    width: 30%;
+    border: 2px solid whitesmoke;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imgDiv {
+    width: 50%;
+}
