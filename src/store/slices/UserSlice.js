@@ -27,12 +27,12 @@ const UserSlice = createSlice({
       state.userError = null;
     },
     logoutUser: (state) => {
-      (state.isLoading = false),
-        (state.userDetails = {}),
-        (state.userError = null),
-        (state.validUser = false),
-        (state.authUser = 0),
-        (state.userTaskList = []);
+      state.isLoading = false;
+      state.userDetails = {};
+      state.userError = null;
+      state.validUser = false;
+      state.authUser = 0;
+      state.userTaskList = [];
     },
   },
   extraReducers: (builder) => {
