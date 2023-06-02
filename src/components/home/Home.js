@@ -37,7 +37,8 @@ const Home = () => {
 
   const handleLogout = async () => {
     const { data } = await axios.post(
-      'https://todolist-backend-gamma.vercel.app/logout',
+      'https://todolist-backend-gamma.vercel.app/logout',{}
+      ,
         {
         withCredentials: true,
         headers: {
