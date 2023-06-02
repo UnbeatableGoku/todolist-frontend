@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { createTaskAction } from '../store/actions/UserAction';
 
 const useHome = () => {
@@ -8,10 +9,13 @@ const useHome = () => {
   const { register, handleSubmit, reset } = useForm();
   const [taskList, setTaskList] = useState([]);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleNewTask = (formData) => {
     dispatch(createTaskAction(formData));
     reset();
+  };
+  const handleNavigateToLogin = () => {
+    navigate('/login');
   };
 
   return {
@@ -24,6 +28,7 @@ const useHome = () => {
     reset,
     dispatch,
     handleNewTask,
+    handleNavigateToLogin,
   };
 };
 

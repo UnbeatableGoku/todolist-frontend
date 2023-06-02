@@ -10,6 +10,7 @@ import {
 } from '../../store/actions/UserAction';
 import TaskList from '../task/TaskList';
 import axios from 'axios';
+import { logoutUser } from '../../store/slices/UserSlice';
 
 const Home = () => {
   const {
@@ -21,6 +22,7 @@ const Home = () => {
     setTaskList,
     dispatch,
     handleNewTask,
+    handleNavigateToLogin,
   } = useHome();
 
   const handleTaskSubmit = (formData) => {
@@ -37,15 +39,19 @@ const Home = () => {
 
   const handleLogout = async () => {
     const { data } = await axios.post(
-      'https://todolist-backend-gamma.vercel.app/logout',{}
-      ,
-        {
+      'https://todolist-backend-gamma.vercel.app/logout',
+      {},
+      {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
         },
       }
     );
+    if (data.message === true) {
+      dispatch(logoutUser());
+      handleNavigateToLogin();
+    }
   };
 
   return (

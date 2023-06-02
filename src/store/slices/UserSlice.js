@@ -26,6 +26,14 @@ const UserSlice = createSlice({
     clearError: (state) => {
       state.userError = null;
     },
+    logoutUser: (state) => {
+      (state.isLoading = false),
+        (state.userDetails = {}),
+        (state.userError = null),
+        (state.validUser = false),
+        (state.authUser = 0),
+        (state.userTaskList = []);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -114,6 +122,6 @@ const UserSlice = createSlice({
   },
 });
 
-export const { clearError } = UserSlice.actions;
+export const { clearError, logoutUser } = UserSlice.actions;
 
 export default UserSlice.reducer;
