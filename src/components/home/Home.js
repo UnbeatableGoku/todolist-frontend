@@ -36,7 +36,7 @@ const Home = () => {
   }, [userTaskList]);
 
   const handleLogout = async () => {
-    const { data } = await axios.get(
+    const { data } = await axios.post(
       'https://todolist-backend-gamma.vercel.app/logout',
         {
         withCredentials: true,
